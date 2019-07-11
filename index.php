@@ -9,7 +9,7 @@ session_start();
 <link rel="stylesheet" type="text/css" href="style.css">
 <head>
     <meta charset="UTF-8">
-    <title>login page</title>
+    <title>index page</title>
 
 </head>
 <body>
