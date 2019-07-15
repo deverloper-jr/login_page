@@ -1,14 +1,23 @@
 <?php
+//use model\dbConnection;
 
 session_start();
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$result = mysqli_connect("localhost", "root","", "my_db" );
+$db = new \model\dbConnection();
 
-$result = mysqli_query($result,"select * from user where (email = '$email' or username = '$email')  and password = '$password'")
-    or die("Fail to query database ".mysqli_error());
-// first u need to fetch proper data which is now associative array
+// ok guys , idk what is happend
+// it doesnt work as it expected , u may continue with ur nex task, later we can figure it out
+// let me push
+$db = $db->connect();
+//$result = mysqli_connect("localhost", "root","", "my_db" );
+
+$result = mysqli_query($db,"select * from user where (email = '$email' or username = '$email')  and password = '$password'");
+
+var_dump($result);
+die;
+
 $row = mysqli_fetch_assoc($result);
 
 /*if ($email != "" && $password != ""){*/
