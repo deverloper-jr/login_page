@@ -38,7 +38,12 @@ session_start();
     <?php
     if (array_key_exists('data',$_SESSION) && $_SESSION['data']['validUser']==false){
         echo "your email or password is incorrect"; }
-
+    if(array_key_exists('deleteUserSuccess',$_SESSION) &&  $_SESSION['deleteUserSuccess'] ){
+    echo "Record deleted successfully";
+    unset($_SESSION['deleteUserSuccess']); }
+    if(array_key_exists('accountCreated',$_SESSION) &&  $_SESSION['accountCreated'] ){
+        echo "Your account has been created";
+        unset($_SESSION['accountCreated']); }
     ?>
 </div>
 </body>

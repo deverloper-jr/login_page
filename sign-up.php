@@ -1,8 +1,8 @@
 <?php
-require ('conn.php');
-$result;
+session_start();
+$result = mysqli_connect("localhost", "root","", "my_db" );
 
-if (isset($_POST['new'])) {
+if (isset($_POST['submit'])) {
 
     $fn = $_POST['name'];
     $ln = $_POST['last'];
@@ -12,7 +12,8 @@ if (isset($_POST['new'])) {
     $pw = $_POST['password'];
 
  mysqli_query($result,"INSERT INTO user(first_name, last_name, gender, username, email, password) values ('$fn','$ln','$gn','$un','$em','$pw')");
-    echo "query inserted";
+    $_SESSION['accountCreated']=true;
+    header("Location: index.php");
 }
 
 ?>
@@ -34,7 +35,7 @@ if (isset($_POST['new'])) {
 
         <label for="lastname">Lastname</label>
 
-        <input type="text" name="last" id="lastname" class="form-control" required><br>
+        <input type="text" name='last' id="lastname" class="form-control" required><br>
 
         <label for="gender">Male</label>
 
@@ -58,7 +59,7 @@ if (isset($_POST['new'])) {
 
         <br>
 
-        <input type="submit" name="new" class="btn btn-success" >
+        <input type="submit" name="submit" class="btn btn-success" >
 
         </form>
 

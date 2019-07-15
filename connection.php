@@ -24,9 +24,17 @@ $row = mysqli_fetch_assoc($result);
 
 
         $myArray = [
+            'id' => $row['id'],
+            'firstname' => $row['first_name'],
+            'lastname' => $row['last_name'],
+            'gender' =>$row['gender'],
+            'email' => $row['email'],
+            'username' => $row['username'],
+            'password' => $row ['password'],
             'fullName' => $row['first_name'] . ' ' . $row['last_name'],
             'validUser' => true,
-            'title' => $title
+            'title' => $title,
+
         ];
 
         $_SESSION["data"] = $myArray;
